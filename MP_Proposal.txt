@@ -1,0 +1,81 @@
+
+--- PAGE 1 ---
+Project Proposal: EEG Neurotech Mobile App
+(Adapting SMART Hydroponic to g.tec Unicorn)
+CSE 431: Mobile Programming, Fall 2025
+Presented to Dr. Haytham Azmi
+October 2025
+1 Introduction
+This proposal adapts the “SMART Hydroponic” mobile application specifica-
+tion to our graduation project domain: a real-time EEG neurotechnology app
+using the g.tec Unicorn Hybrid Black headset. We map the hydroponic system’s
+sensors, actuators, cloud connectivity, analytics, alerts, and testing requirements
+to EEG acquisition, analytics, and neurofeedback control. Our goal is to meet
+all functional and non-functional requirements to achieve full marks, while pro-
+ducing a great front-end for our graduation project.
+Please note that the core features of the GP are the data-acquisition, pre-
+processing, and data-analysis (DL) pipeline. We thought it may be a good idea
+to ”merge” the mobile-programming project also to add a good front-end for
+the GP.
+2 Objective and concept
+Objective:Build a Flutter app that:
+•Monitorsreal-time EEG signals and derived features (e.g., band power,
+cognitive workload level, detected emotion).
+•Providesneurofeedback control for mental-state regulation (visual, au-
+ditory). (e.g progress bars, music loudness)
+•Synchronizesdata with Firebase for dashboards and remote review,
+while logging locally in SQLite.
+•Analyzeshistory & trends. Provides over-time insights and threshold-
+triggered notifications.
+1
+--- PAGE 2 ---
+3 Requirement mapping (Hydroponic→EEG)
+3.1 Functional screen design
+The functional screen will be very similar to the one outlined in the Hydroponic
+project document, and will have the same functionalities (e.g registration &
+authentication, real-time sensor monitoring, analytics & history, etc) with minor
+domain-specific differences.
+3.2 Hardware and mobile technology
+•Sensor hub (MCU equivalent):g.tec Unicorn Hybrid Black streams
+EEG wirelessly to a host (PC bridge).
+•Sensors:8 EEG channels (primary sensors) plus derived “virtual sen-
+sors”:
+•Actuators:
+– Start/Stop Recording Session
+– Neurofeedback Control:Color/brightness modulation, progress
+bar animation driven by thresholds, etc.
+•Cloud link (Firebase):Publish analyzed data for storage, receive con-
+trol commands.
+•Architecture:
+– PC bridge :Flutter app issues commands via Firebase/Socket; a
+lightweight PC service (Unicorn SDK) controls acquisition and mir-
+rors live features to Firebase; mobile displays/sends feedback.
+3.3 Database integration
+We will implement SQLite for local logging and state management with Provider/Bloc.
+3.4 Quality enhancement features
+•Text-to-speech (Maybe Implemented):Impedance guidance, coach-
+ing prompts, session status changes.
+•Speech recognition (Maybe Implemented):Hands-free commands:
+“start session”, “pause feedback”, etc.
+•Notifications (Will be Implemented):High workload, low SNR, con-
+nection loss, schedule start/end, session summary.
+•MVVM architecture (Will be Implemented)
+•Data validation (Will be Implemented):Numeric thresholds, impedance
+acceptable before “Start”.
+2
+--- PAGE 3 ---
+3.5 Testing and auto-test scripts
+We will provide full testing and automation as outlined in the requirements
+document.
+4 Conclusion
+This adaptation satisfies the SMART Hydroponic specification by mapping en-
+vironmental sensors/actuators to EEG features and neurofeedback, preserving
+cloud synchronization, local logging, analytics, alerts, and testing. It simultane-
+ously advances our graduation project by delivering a production-quality mobile
+UI, session orchestration, and data management, aligned with the marking cri-
+teria for full credit.
+Final Note:If some of the project’s core functionalities (e.g data-analysis
+unit, deep learning model) are not ready by the time of the app’s delivery time,
+we will use simulated data and/or drivers and stubs to meet the full requirements
+of the course CSE431.
+3
